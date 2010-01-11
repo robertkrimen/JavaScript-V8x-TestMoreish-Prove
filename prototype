@@ -1,0 +1,14 @@
+#!/usr/bin/env perl
+
+use strict;
+use warnings;
+
+use JavaScript::V8x::TestMoreish::Prove;
+
+JavaScript::V8x::TestMoreish::Prove->prove_content( <<'_END_' );
+diag( "Hello, World." );
+areEqual( 1, 1 );
+areEqual( 1, 2 );
+like( "Hello, World.", /o, World/ )
+like( "Hello, World.", /Alice/ )
+_END_

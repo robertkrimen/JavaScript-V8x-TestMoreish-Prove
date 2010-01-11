@@ -20,6 +20,20 @@ our $VERSION = '0.010';
 
 =cut
 
+use JavaScript::V8x::TestMoreish();
+
+sub prove_content {
+    my $self = shift;
+    my $content = shift;
+
+    my $context = JavaScript::V8x::TestMoreish->new;
+
+    require Test::More;
+    Test::More->builder->no_plan;
+
+    $context->test( $content );
+}
+
 =head1 AUTHOR
 
 Robert Krimen, C<< <rkrimen at cpan.org> >>
